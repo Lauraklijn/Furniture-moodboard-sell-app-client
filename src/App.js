@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 //import { Image, CloudinaryContext } from "cloudinary-react";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-//import { connect } from "react-redux";
+import { connect } from "react-redux";
 import CreateMoodboard from "../src/components/CreateMoodboard";
 import "./App.css";
 import TestPage from "./components/DnDgrit/TestPage";
-//import "bootstrap/dist/css/bootstrap.min.css";
+import SignupForm from "../src/components/Signup";
+import "bootstrap/dist/css/bootstrap.min.css";
 import HomePage from "../src/components/HomePage";
 // import Navbar from "react-bootstrap/Navbar";
 // import Nav from "react-bootstrap/Nav";
@@ -20,6 +21,7 @@ class App extends Component {
         <Router>
           <Route exact path="/" component={CreateMoodboard} />
           <Route exact path="/home" component={HomePage} />
+          <Route exact path="/signup" component={SignupForm} />
 
           <Route exact path="/test" component={TestPage} />
         </Router>
@@ -28,4 +30,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default connect()(App);

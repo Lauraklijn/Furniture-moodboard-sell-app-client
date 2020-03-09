@@ -6,13 +6,17 @@ import "./index.css";
 import App from "./App";
 import * as serviceWorker from "./serviceWorker";
 import { GridProvider } from "./components/DnDgrit/GridContext";
+import store from "../src/store";
+import { Provider } from "react-redux";
 
 ReactDOM.render(
-  <DndProvider backend={HTML5Backend}>
-    <GridProvider>
-      <App />
-    </GridProvider>
-  </DndProvider>,
+  <Provider store={store}>
+    <DndProvider backend={HTML5Backend}>
+      <GridProvider>
+        <App />
+      </GridProvider>
+    </DndProvider>
+  </Provider>,
   document.getElementById("root")
 );
 
