@@ -1,9 +1,8 @@
 import React, { useState } from "react";
-//import Board from "../components/Board";
 import TestPage from "../components/DnDgrit/TestPage";
-import Button from "react-bootstrap/Button";
+//import Button from "react-bootstrap/Button";
 
-function CreateMoodboard() {
+function AddImage() {
   const [image, setImage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -23,7 +22,7 @@ function CreateMoodboard() {
     );
 
     const file = await res.json();
-
+    console.log("image Url ", file);
     setImage(file.secure_url);
     setLoading(false);
   };
@@ -32,18 +31,16 @@ function CreateMoodboard() {
     <div>
       <h2>CREATE YOUR MOODBOARD</h2>
       <br />
-      <p>
-        <Button variant="light">Add moodboard to your page</Button>
-      </p>
-      <br />
-      <p>
-        <input
-          type="file"
-          name="file"
-          placeholder="Upload an image"
-          onChange={uploadImage}
-        />
-      </p>
+
+      <button variant="light">Add moodboard to your page</button>
+
+      <input
+        type="file"
+        name="file"
+        placeholder="Upload an image"
+        onChange={uploadImage}
+      />
+
       {loading ? (
         <h3>Loading...</h3>
       ) : (
@@ -55,4 +52,4 @@ function CreateMoodboard() {
   );
 }
 
-export default CreateMoodboard;
+export default AddImage;
