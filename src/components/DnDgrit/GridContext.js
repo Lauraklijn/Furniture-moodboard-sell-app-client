@@ -30,7 +30,11 @@ export class GridProvider extends Component {
       setItems: this.setItems
     };
   }
+  //cm did mnt
+  //{ superagent . get /mymoods}
+  //.then (setstate)
 
+  // + Create endpoint database
   render() {
     return (
       <GridContext.Provider value={this.state}>

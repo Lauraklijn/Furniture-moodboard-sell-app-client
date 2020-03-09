@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-// import Navbar from "react-bootstrap/Navbar";
-// import Nav from "react-bootstrap/Nav";
-// import Form from "react-bootstrap/Form";
-// import FormControl from "react-bootstrap/FormControl";
-// import Button from "react-bootstrap/Button";
 
-export default class HomePage extends Component {
+export default class Homepage extends Component {
   render() {
-    return <div></div>;
+    return (
+      <div>
+        {" "}
+        <h1>HOMEPAGE</h1> <p>See overview USER PROFILES</p>
+      </div>
+    );
   }
 }

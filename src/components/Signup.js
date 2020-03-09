@@ -6,20 +6,25 @@ import Form from "react-bootstrap/Form";
 
 class SignupForm extends Component {
   state = {
-    email: "",
-    password: ""
+    name: "",
+    email: ""
   };
 
   handleSubmit = event => {
     event.preventDefault();
     console.log("Im submitting signup", this.state);
     if (!this.state.email || !this.state.password) {
-      alert("Pleas enter your e-mail and passoword");
+      alert("Please enter your e-mail and passoword");
       return;
     }
 
     this.props.dispatch(
-      signUp(this.state.email, this.state.password, this.props.history)
+      signUp(
+        this.state.email,
+        this.state.password,
+
+        this.props.history
+      )
     );
 
     this.setState({ value: event.target.value });
@@ -35,7 +40,7 @@ class SignupForm extends Component {
     return (
       <div>
         {" "}
-        <h1>Please, create an account</h1>
+        <h1>Please, signup</h1>
         <Form onSubmit={this.handleSubmit}>
           <Form.Group controlId="formBasicEmail">
             <Form.Label>Email address</Form.Label>

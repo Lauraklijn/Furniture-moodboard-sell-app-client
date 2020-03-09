@@ -1,10 +1,14 @@
-import { USER_CREATED } from "../../src/user/user-action";
+import { USER_CREATED } from "../user/user-action";
 import { USER_LOGIN_SUCESS } from "../user/user-action";
+import { ACCOUNT_CREATED } from "../user/user-action";
+import { GET_USER_PROFILE } from "../user/user-action";
 
 const initialState = {
   userCreated: false,
   jwt: null,
-  email: null
+  email: null,
+  accountCreated: false,
+  profile: []
 };
 
 export default (state = initialState, action = {}) => {
@@ -20,6 +24,15 @@ export default (state = initialState, action = {}) => {
         jwt: action.payload.token,
         email: action.payload.email
       };
+    case ACCOUNT_CREATED:
+      return {
+        ...state,
+        accountCreated: true
+      };
+    case GET_USER_PROFILE:
+      console.log("What is Payload?", action);
+      return { ...state, profile: action.payload };
+
     default:
       return state;
   }
