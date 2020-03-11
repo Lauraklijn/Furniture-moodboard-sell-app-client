@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import Card from "react-bootstrap/Card";
 //import Button from "react-bootstrap/Button";
 import { UserProfile } from "../user/user-action";
+import CreateProductForm from "../components/Products/CreateProductForm";
 
 class UserPage extends React.Component {
   componentDidMount() {
@@ -15,7 +16,16 @@ class UserPage extends React.Component {
 
     return (
       <div className="d-flex justify-content-center">
-        <p>{this.props.profile.name}</p>
+        <p>
+          {this.props.profile.name}
+
+          <a>{this.props.profile.discription}</a>
+          <Card border="dark" style={{ width: "18rem" }}>
+            <Card.Img variant="top" src={this.props.profile.image} />
+          </Card>
+        </p>
+        <CreateProductForm props={this.props} />
+
         {/* <Card className="mt-5" border="dark" style={{ width: "30rem" }}>
           <Card.Img variant="top" src={this.props.profile.name} />
           
@@ -36,7 +46,7 @@ class UserPage extends React.Component {
 }
 
 const mapStateToProps = state => {
-  console.log("what is state", state.userData.profile);
+  console.log("what is state", state.userData);
   return {
     profile: state.userData.profile
   };

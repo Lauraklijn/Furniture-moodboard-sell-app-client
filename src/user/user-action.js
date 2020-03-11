@@ -21,8 +21,8 @@ export function signUp(email, password, history) {
       });
   };
 }
-function signUpSucces() {
-  return { type: USER_CREATED };
+function signUpSucces(response) {
+  return { type: USER_CREATED, payload: response };
 }
 
 // LOGIN_______________________________________
@@ -42,7 +42,9 @@ export function login(email, password, history) {
         password
       })
       .then(response => {
-        history.push("/");
+        console.log("GETSTATE", getState().userData);
+
+        history.push("/create-account");
 
         dispatch(loginSuccess(response.data));
       });
@@ -52,22 +54,24 @@ export function login(email, password, history) {
 export function createAccount(name, image, discription, history) {
   return function(dispatch, getState) {
     console.log(name, image);
+    const userId = getState().userData.userCreated.id;
     return axios
       .post("http://localhost:4000/userprofile/signup", {
         name,
         image,
-        discription
+        discription,
+        userId
       })
       .then(response => {
         console.log(response.data);
         history.push("/");
 
-        dispatch(accountCreated(response));
+        dispatch(accountCreated(response.data));
       });
   };
 }
-function accountCreated() {
-  return { type: ACCOUNT_CREATED };
+function accountCreated(payload) {
+  return { type: ACCOUNT_CREATED, payload: payload };
 }
 
 function GetUserProfile(payload) {

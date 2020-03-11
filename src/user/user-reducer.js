@@ -14,9 +14,11 @@ const initialState = {
 export default (state = initialState, action = {}) => {
   switch (action.type) {
     case USER_CREATED:
+      console.log("CREATED PAYLOAD", action.payload);
+
       return {
         ...state,
-        userCreated: true
+        userCreated: action.payload.data.userAccount
       };
     case USER_LOGIN_SUCESS:
       return {
@@ -25,9 +27,11 @@ export default (state = initialState, action = {}) => {
         email: action.payload.email
       };
     case ACCOUNT_CREATED:
+      console.log("Account CREATED", action.payload);
+
       return {
         ...state,
-        accountCreated: true
+        userCreated: action.payload.userProfile
       };
     case GET_USER_PROFILE:
       console.log("What is Payload?", action);

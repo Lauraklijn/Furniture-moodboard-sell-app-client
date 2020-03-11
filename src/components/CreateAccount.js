@@ -19,8 +19,8 @@ class CreateAccountForm extends Component {
     console.log("CHeck state", this.state);
   };
 
-  handleSubmit = event => {
-    event.preventDefault();
+  handleSubmit = account => {
+    account.preventDefault();
     console.log("Im Creating a account", this.state);
     if (!this.state.name || !this.state.image) {
       alert("Please fill in the form");
@@ -37,7 +37,7 @@ class CreateAccountForm extends Component {
       )
     );
 
-    this.setState({ value: event.target.value });
+    this.setState({ value: account.target.value });
   };
 
   handleInputs = event => {

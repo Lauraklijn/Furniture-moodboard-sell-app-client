@@ -11,6 +11,7 @@ import Homepage from "../src/components/Homepage";
 import Login from "../src/components/Login";
 import CreateAccount from "./components/CreateAccount";
 import UserPage from "./components/UserPage";
+import NavbarContainer from "./components/Navbar";
 // import Navbar from "react-bootstrap/Navbar";
 // import Nav from "react-bootstrap/Nav";
 // import Form from "react-bootstrap/Form";
@@ -22,8 +23,9 @@ class App extends Component {
     return (
       <div className="App-header">
         <Router>
+          <NavbarContainer />
           <nav>
-            <Link to="/">
+            {/* <Link to="/">
               <li>HOME</li>
             </Link>
             <Link to="/signup">
@@ -37,7 +39,7 @@ class App extends Component {
             </Link>
             <Link to="/create-account">
               <li>Create User-account</li>
-            </Link>
+            </Link> */}
           </nav>
           <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Homepage} />
