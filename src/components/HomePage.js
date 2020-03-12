@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+//import UserProfileListContainer from "./UserProfile/UserProfileContainer";
 
 export default class Homepage extends Component {
   render() {
@@ -10,3 +11,7 @@ export default class Homepage extends Component {
     );
   }
 }
+
+//UserProfileContainer not added yet, gives errors and can't solve it yet..
+
+//<UserProfileListContainer />

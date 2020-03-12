@@ -5,6 +5,7 @@ import { createProduct } from "../../product/product-action";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 //import AddPhoto from "../components/AddPhoto";
+import Card from "react-bootstrap/Card";
 
 class CreateProductForm extends Component {
   state = {
@@ -14,6 +15,7 @@ class CreateProductForm extends Component {
     price: ""
   };
 
+  //------Feature to add photo's from browser (have to finish this one)
   // handleImageState = imageUrl => {
   //   console.log("WHAT IS ImgURL?", imageUrl);
   //   console.log("WHAT IS THIS", this.handleImageState);
@@ -23,12 +25,7 @@ class CreateProductForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    // console.log("Im Creating a product", this.state);
-    // console.log("WHAT IS PROPS", this.props);
-    // if (!this.state.name || !this.state.image) {
-    //   alert("Please fill in the form");
-    //   return;
-    // }
+
     const userId = this.props.props.match.params.id;
 
     this.props.createProduct(
@@ -58,47 +55,49 @@ class CreateProductForm extends Component {
 
     return (
       <div>
-        {" "}
-        <h1>Create a product to sell</h1>
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Title</Form.Label>
-            <Form.Control
-              type="text"
-              name="title"
-              placeholder="Title"
-              value={this.state.title}
-              onChange={this.handleInputs}
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Description</Form.Label>
-            <Form.Control
-              type="text"
-              name="description"
-              placeholder="Give an discription of your product"
-              value={this.state.description}
-              onChange={this.handleInputs}
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
+        <Card style={{ color: "coral", width: "15rem" }}>
+          <Card.Body>
+            {" "}
+            <p>Create a product to sell</p>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Title</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="title"
+                  placeholder="Title"
+                  value={this.state.title}
+                  onChange={this.handleInputs}
+                />
+                <Form.Text className="text-muted"></Form.Text>
+              </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Description</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="description"
+                  placeholder="Give an discription of your product"
+                  value={this.state.description}
+                  onChange={this.handleInputs}
+                />
+                <Form.Text className="text-muted"></Form.Text>
+              </Form.Group>
 
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Price</Form.Label>
-            <Form.Control
-              type="text"
-              name="price"
-              placeholder="€"
-              value={this.state.price}
-              onChange={this.handleInputs}
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Price</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="price"
+                  placeholder="€"
+                  value={this.state.price}
+                  onChange={this.handleInputs}
+                />
+                <Form.Text className="text-muted"></Form.Text>
+              </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Image</Form.Label>
-            {/* <Form.Control
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Image</Form.Label>
+                {/* <Form.Control
               type="text"
               name="image"
               placeholder="Add image"
@@ -107,18 +106,20 @@ class CreateProductForm extends Component {
               //handleImageState={this.handleImageState}
             /> */}
 
-            <Form.Control
-              type="text"
-              name="image"
-              placeholder="Add image"
-              value={this.state.image}
-              onChange={this.handleInputs}
-            />
-            <Button type="submit" value="Submit" variant="dark">
-              Submit
-            </Button>
-          </Form.Group>
-        </Form>
+                <Form.Control
+                  type="text"
+                  name="image"
+                  placeholder="Add image"
+                  value={this.state.image}
+                  onChange={this.handleInputs}
+                />
+                <Button type="submit" value="Submit" variant="dark">
+                  Submit
+                </Button>
+              </Form.Group>
+            </Form>
+          </Card.Body>
+        </Card>
       </div>
     );
   }

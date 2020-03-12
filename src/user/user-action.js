@@ -4,6 +4,9 @@ export const USER_CREATED = "USER_CREATED";
 export const USER_LOGIN_SUCESS = "USER_LOGIN_SUCCES";
 export const ACCOUNT_CREATED = "ACCOUNT_CREATED";
 export const GET_USER_PROFILE = "GET_USER_PROFILE";
+export const USERPROFILES_FETCHED = "USERPROFILES_FETCHED";
+
+//---Sign-up
 
 export function signUp(email, password, history) {
   return function(dispatch, getState) {
@@ -51,6 +54,8 @@ export function login(email, password, history) {
   };
 }
 
+//----Create user-profile
+
 export function createAccount(name, image, discription, history) {
   return function(dispatch, getState) {
     console.log(name, image);
@@ -85,5 +90,23 @@ function GetUserProfile(payload) {
 export const UserProfile = id => (dispatch, getState) => {
   axios.get(`http://localhost:4000/userprofile/${id}`).then(function(response) {
     dispatch(GetUserProfile(response.data));
+  });
+};
+
+//........... Load Userprofiles:
+
+function UserProfilesFetched(UserProfiles) {
+  console.log("What is UserprofileFetched?", UserProfiles);
+  return {
+    type: USERPROFILES_FETCHED,
+    payload: {
+      UserProfiles: UserProfiles
+    }
+  };
+}
+
+export const loadUserProfiles = () => async (dispatch, getState) => {
+  axios.get("http://localhost:4000/userprofile").then(function(response) {
+    dispatch(UserProfilesFetched(response.data));
   });
 };

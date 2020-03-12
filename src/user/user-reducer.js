@@ -2,6 +2,7 @@ import { USER_CREATED } from "../user/user-action";
 import { USER_LOGIN_SUCESS } from "../user/user-action";
 import { ACCOUNT_CREATED } from "../user/user-action";
 import { GET_USER_PROFILE } from "../user/user-action";
+import { USERPROFILES_FETCHED } from "../user/user-action";
 
 const initialState = {
   userCreated: false,
@@ -37,6 +38,9 @@ export default (state = initialState, action = {}) => {
       console.log("What is Payload?", action);
       return { ...state, profile: action.payload };
 
+    case USERPROFILES_FETCHED:
+      console.log("WHT IS PAYLOAYLOAD, userprofileFetched", action.payload);
+      return { ...action.payload };
     default:
       return state;
   }

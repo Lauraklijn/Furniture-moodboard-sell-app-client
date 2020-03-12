@@ -4,26 +4,31 @@ import Nav from "react-bootstrap/Nav";
 import Form from "react-bootstrap/Form";
 import FormControl from "react-bootstrap/FormControl";
 import Button from "react-bootstrap/Button";
+import Col from "react-bootstrap/Col";
 
 export default class NavbarContainer extends Component {
   render() {
     console.log("WHAT IS STATE???", this.state);
     return (
       <div>
-        <Navbar bg="light" variant="light">
-          <Navbar.Brand href="#home">Navbar</Navbar.Brand>
+        <Navbar bg="dark" variant="dark">
+          <Navbar.Brand href="/">
+            {" "}
+            <img
+              src="https://cdn.dribbble.com/users/17577/screenshots/1478281/furniture.png"
+              width="100"
+              height="100"
+              className="d-inline-block align-top"
+              alt="Userpage"
+            />{" "}
+          </Navbar.Brand>
           <Nav className="mr-auto">
-            <Nav.Link href="/">Home</Nav.Link>
             <Nav.Link href="/userprofile/:id">My Profile</Nav.Link>
             <Nav.Link href="/login">Login</Nav.Link>
             <Nav.Link href="/signup">Signup</Nav.Link>
             <Nav.Link href="/create-moodboard">moodboard</Nav.Link>
             <Nav.Link href="/create-account">Create page</Nav.Link>
           </Nav>
-          <Form inline>
-            <FormControl type="text" placeholder="Search" className="mr-sm-2" />
-            <Button variant="outline-primary">Search</Button>
-          </Form>
         </Navbar>
       </div>
     );

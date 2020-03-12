@@ -4,6 +4,7 @@ import Card from "react-bootstrap/Card";
 //import Button from "react-bootstrap/Button";
 import { UserProfile } from "../user/user-action";
 import CreateProductForm from "../components/Products/CreateProductForm";
+import Navbar from "react-bootstrap/Navbar";
 
 class UserPage extends React.Component {
   componentDidMount() {
@@ -15,31 +16,27 @@ class UserPage extends React.Component {
     console.log("profile??????????", this.props.profile);
 
     return (
-      <div className="d-flex justify-content-center">
-        <p>
-          {this.props.profile.name}
+      <div>
+        <Navbar bg="light" expand="lg">
+          <Navbar.Brand href="profile">
+            <img
+              src={this.props.profile.image}
+              width="100"
+              height="100"
+              className="d-inline-block align-top"
+              alt="Userpage"
+            />{" "}
+            <a>{this.props.profile.discription}</a>
+          </Navbar.Brand>
+          <Navbar.Toggle />
+          <Navbar.Collapse className="justify-content-end">
+            <Navbar.Text>
+              Signed in as: <a>{this.props.profile.name}</a>
+            </Navbar.Text>
+          </Navbar.Collapse>
+        </Navbar>
 
-          <a>{this.props.profile.discription}</a>
-          <Card border="dark" style={{ width: "18rem" }}>
-            <Card.Img variant="top" src={this.props.profile.image} />
-          </Card>
-        </p>
         <CreateProductForm props={this.props} />
-
-        {/* <Card className="mt-5" border="dark" style={{ width: "30rem" }}>
-          <Card.Img variant="top" src={this.props.profile.name} />
-          
-          <Card.Header border="dark">{this.props.ticket.name}</Card.Header>
-          <Card.Body>
-            <Card.Title>€ {this.props.ticket.price}</Card.Title>
-            <Card.Text>{this.props.ticket.description}</Card.Text>
-            <Button variant="dark">BUY</Button>
-          </Card.Body>
-          <Card.Footer className="text-muted">
-            Author: {this.props.ticket.author}
-            <li>Risk:{this.props.ticket.risk}%</li>
-          </Card.Footer>
-        </Card> */}
       </div>
     );
   }

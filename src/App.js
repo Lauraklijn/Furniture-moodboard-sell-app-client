@@ -21,26 +21,10 @@ import NavbarContainer from "./components/Navbar";
 class App extends Component {
   render() {
     return (
-      <div className="App-header">
+      <div className="App">
         <Router>
           <NavbarContainer />
-          <nav>
-            {/* <Link to="/">
-              <li>HOME</li>
-            </Link>
-            <Link to="/signup">
-              <li>Sign up!</li>
-            </Link>
-            <Link to="/login">
-              <li>Login</li>
-            </Link>
-            <Link to="/create-moodboard">
-              <li>Create Moodboard</li>
-            </Link>
-            <Link to="/create-account">
-              <li>Create User-account</li>
-            </Link> */}
-          </nav>
+
           <Route exact path="/login" component={Login} />
           <Route exact path="/" component={Homepage} />
           <Route exact path="/create-account" component={CreateAccount} />

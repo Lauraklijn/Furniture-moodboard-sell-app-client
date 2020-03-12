@@ -4,6 +4,7 @@ import { login } from "../user/user-action";
 
 import Form from "react-bootstrap/Form";
 import Button from "react-bootstrap/Button";
+import Card from "react-bootstrap/Card";
 
 class Login extends Component {
   state = {
@@ -34,37 +35,41 @@ class Login extends Component {
 
   render() {
     return (
-      <div className="login">
-        <h1>Enter your email and password to login</h1>
+      <div className="d-flex justify-content-center">
+        <Card style={{ width: "25rem" }}>
+          <Card.Body>
+            <h3>Enter your email and password to login</h3>
 
-        <Form onSubmit={this.handleSubmit}>
-          <Form.Group controlId="formBasicEmail">
-            <Form.Label>Email address</Form.Label>
-            <Form.Control
-              type="email"
-              name="email"
-              placeholder="Enter email"
-              value={this.state.email}
-              onChange={this.handleInputs}
-            />
-            <Form.Text className="text-muted"></Form.Text>
-          </Form.Group>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Group controlId="formBasicEmail">
+                <Form.Label>Email address</Form.Label>
+                <Form.Control
+                  type="email"
+                  name="email"
+                  placeholder="Enter email"
+                  value={this.state.email}
+                  onChange={this.handleInputs}
+                />
+                <Form.Text className="text-muted"></Form.Text>
+              </Form.Group>
 
-          <Form.Group controlId="formBasicPassword">
-            <Form.Label>Password</Form.Label>
-            <Form.Control
-              type="text"
-              name="password"
-              placeholder="Enter password"
-              value={this.state.password}
-              onChange={this.handleInputs}
-            />
+              <Form.Group controlId="formBasicPassword">
+                <Form.Label>Password</Form.Label>
+                <Form.Control
+                  type="text"
+                  name="password"
+                  placeholder="Enter password"
+                  value={this.state.password}
+                  onChange={this.handleInputs}
+                />
 
-            <Button variant="dark" type="submit">
-              Submit
-            </Button>
-          </Form.Group>
-        </Form>
+                <Button variant="dark" type="submit">
+                  Submit
+                </Button>
+              </Form.Group>
+            </Form>
+          </Card.Body>
+        </Card>
       </div>
     );
   }
