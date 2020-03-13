@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 //import { Image, CloudinaryContext } from "cloudinary-react";
-import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Route } from "react-router-dom";
 import { connect } from "react-redux";
 import CreateMoodboard from "../src/components/CreateMoodboard";
 import "./App.css";
@@ -40,4 +40,11 @@ class App extends Component {
   }
 }
 
-export default connect()(App);
+const mapStateToProps = state => {
+  console.log("STATE (mapSTATETOTPROPS", state.userData.userId);
+  return {
+    userLoggedIn: state.userData.userId !== null
+  };
+};
+
+export default connect(mapStateToProps)(App);

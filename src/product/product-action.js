@@ -12,15 +12,25 @@ function productFetched(products) {
   };
 }
 
-//Matched endpoint with server api (events/id/tickets), to see only the tickets from that event
-export const loadProducts = () => (dispatch, getState) => {
+// //Matched endpoint with server api (events/id/tickets), to see only the tickets from that event
+// export const loadProducts = () => (dispatch, getState) => {
+//   axios
+//     .get(`http://localhost:4000/userprofile/:id/products`)
+//     .then(function(response) {
+//       dispatch(productFetched(response.data));
+//     });
+// };
+
+///-------------Test with userId
+
+export const loadProducts = userId => (dispatch, getState) => {
+  console.log("dispatch action", dispatch);
   axios
-    .get(`http://localhost:4000/userprofile/:id/products`)
+    .get(`http://localhost:5050/events/${userId}/products`)
     .then(function(response) {
       dispatch(productFetched(response.data));
     });
 };
-
 // Create Product
 
 // function createProductSucces(product) {

@@ -29,10 +29,10 @@ function signUpSucces(response) {
 }
 
 // LOGIN_______________________________________
-function loginSuccess(token) {
+function loginSuccess(data) {
   return {
     type: USER_LOGIN_SUCESS,
-    payload: { token: token }
+    payload: { token: data.token, userId: data.userId }
   };
 }
 
@@ -45,7 +45,7 @@ export function login(email, password, history) {
         password
       })
       .then(response => {
-        console.log("GETSTATE", getState().userData);
+        console.log("Loging response?!", response.data);
 
         history.push("/create-account");
 

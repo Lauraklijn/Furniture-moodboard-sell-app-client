@@ -1,14 +1,15 @@
 import React from "react";
 import { connect } from "react-redux";
-import Card from "react-bootstrap/Card";
+//import Card from "react-bootstrap/Card";
 //import Button from "react-bootstrap/Button";
 import { UserProfile } from "../user/user-action";
 import CreateProductForm from "../components/Products/CreateProductForm";
 import Navbar from "react-bootstrap/Navbar";
+import ProductList from "./Products/ProductList";
 
 class UserPage extends React.Component {
   componentDidMount() {
-    console.log("What is UserProfile", this.props);
+    console.log("What is UserProfile", this.props.UserProfile());
     this.props.UserProfile(this.props.match.params.id);
   }
 
@@ -37,13 +38,14 @@ class UserPage extends React.Component {
         </Navbar>
 
         <CreateProductForm props={this.props} />
+        <ProductList />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => {
-  console.log("what is state", state.userData);
+  console.log("what is state in userPage??", state.userData.profile);
   return {
     profile: state.userData.profile
   };

@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { createProduct } from "../../product/product-action";
+import ProductList from "../Products/ProductList";
+import { loadProducts } from "../../product/product-action";
 
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -14,6 +16,13 @@ class CreateProductForm extends Component {
     image: "",
     price: ""
   };
+
+  componentDidMount() {
+    console.log("What is loadProducts?", loadProducts);
+    if (this.props.match) {
+      this.props.loadProducts(this.props.match.params.id);
+    }
+  }
 
   //------Feature to add photo's from browser (have to finish this one)
   // handleImageState = imageUrl => {
@@ -120,9 +129,19 @@ class CreateProductForm extends Component {
             </Form>
           </Card.Body>
         </Card>
+        <ProductList products={this.props.products} />
       </div>
     );
   }
 }
 
-export default connect(null, { createProduct })(CreateProductForm);
+const mapStateToProps = state => {
+  console.log("what is state (productList)", state);
+  return {
+    products: state.productData
+  };
+};
+
+export default connect(mapStateToProps, { loadProducts, createProduct })(
+  CreateProductForm
+);

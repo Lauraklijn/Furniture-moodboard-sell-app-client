@@ -9,7 +9,8 @@ const initialState = {
   jwt: null,
   email: null,
   accountCreated: false,
-  profile: []
+  profile: [],
+  userId: null
 };
 
 export default (state = initialState, action = {}) => {
@@ -25,7 +26,7 @@ export default (state = initialState, action = {}) => {
       return {
         ...state,
         jwt: action.payload.token,
-        email: action.payload.email
+        userId: action.payload.userId
       };
     case ACCOUNT_CREATED:
       console.log("Account CREATED", action.payload);
