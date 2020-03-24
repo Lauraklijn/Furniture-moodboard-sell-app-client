@@ -78,7 +78,7 @@ class Login extends Component {
 const mapStateToProps = state => {
   console.log("what is state", state);
   return {
-    userLoggedIn: state.userData.token !== null
+    userLoggedIn: state.userData
   };
 };
 

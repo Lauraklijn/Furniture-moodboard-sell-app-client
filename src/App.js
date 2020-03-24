@@ -12,11 +12,6 @@ import Login from "../src/components/Login";
 import CreateAccount from "./components/CreateAccount";
 import UserPage from "./components/UserPage";
 import NavbarContainer from "./components/Navbar";
-// import Navbar from "react-bootstrap/Navbar";
-// import Nav from "react-bootstrap/Nav";
-// import Form from "react-bootstrap/Form";
-// import FormControl from "react-bootstrap/FormControl";
-// import Button from "react-bootstrap/Button";
 
 class App extends Component {
   render() {
@@ -41,9 +36,9 @@ class App extends Component {
 }
 
 const mapStateToProps = state => {
-  console.log("STATE (mapSTATETOTPROPS", state.userData.userId);
+  console.log("STATE (mapSTATETOTPROPS", state.userData);
   return {
-    userLoggedIn: state.userData.userId !== null
+    userLoggedIn: state.userData
   };
 };
 

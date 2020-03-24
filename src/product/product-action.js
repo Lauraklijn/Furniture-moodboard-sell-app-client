@@ -7,7 +7,7 @@ function productFetched(products) {
   return {
     type: PRODUCT_FETCHED,
     payload: {
-      products: products
+      products
     }
   };
 }
@@ -26,7 +26,7 @@ function productFetched(products) {
 export const loadProducts = userId => (dispatch, getState) => {
   console.log("dispatch action", dispatch);
   axios
-    .get(`http://localhost:5050/events/${userId}/products`)
+    .get(`http://localhost:4000/userprofile/${userId}`)
     .then(function(response) {
       dispatch(productFetched(response.data));
     });
@@ -74,7 +74,7 @@ export function createProduct(title, image, description, price, userId) {
   return function(dispatch, getState) {
     console.log("WHAT IS NAME ETC?", title, image, description, price, userId);
     return axios
-      .post(`http://localhost:4000/userprofile/${userId}/products`, {
+      .post(`http://localhost:4000/userprofile/${userId}`, {
         title,
         image,
         description,
